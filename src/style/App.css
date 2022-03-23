@@ -1,0 +1,97 @@
+.App {
+  font-family: 'Roboto Mono', monospace;
+  background-color: #f8f4EE;
+  color: rgb(19, 19, 19); 
+  /* 
+    color: rgba(19, 19, 19, 60%); 
+    color: rgba(19, 19, 19, 37%); 
+  */
+}
+
+/**BODY**/
+html {
+  scroll-behavior: smooth;
+}
+body {
+  padding: 7rem;
+  margin: 0;
+  font-family: 'Roboto Mono', monospace;
+}
+
+/**BUTTONS**/
+.btnClear {
+  border: 1px solid #131313;
+  padding: 0.75rem;
+  font-size: 1rem;
+  width: fit-content;
+  margin-top: 8rem;
+}
+
+.btnClear:hover {
+  background-color: #131313;
+  color: #ffffff;
+}
+
+/**CONTAINERS**/
+.headerBlock {
+  height: 100vh;
+}
+
+.headerBlock .homeMainText h2 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.colBlock {
+  display: flex;
+  flex-direction: row;
+}
+
+div.blockLabel {
+  margin-right: 5rem;
+  width: 10rem;
+}
+
+.blockLabel>h2{
+  font-size: 1.5rem;
+  text-align: right;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+.skillsList {
+  display: flex;
+}
+
+.skillsList div>h3 {
+  text-transform: uppercase;
+}
+.experienceList .experienceRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.experienceRow h4, .experienceRow p {
+  margin: 0;
+}
+
+.experienceRow h4 {
+  font-size: 1.2rem;
+}
+
+.projectTechList {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.footer {
+  display: flex;
+}
+
+.footerLinks li {
+  display: inline-block;
+}
