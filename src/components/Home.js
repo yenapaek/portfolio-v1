@@ -1,14 +1,111 @@
 import React from 'react';
-import { BsArrowUpCircle, BsArrowRight } from 'react-icons/bs';
+import { BsArrowUpCircle, BsArrowRight, BsMailbox } from 'react-icons/bs';
+import { AiOutlineLinkedin } from 'react-icons/ai';
+import { FaGithubAlt } from 'react-icons/fa';
+import yenaLogoDualLight from '../assets/yenaLogoDualLight.png';
 
 class Home extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            showScroll: false,
+        }
+    }
+
+    scrollDown = () => {
+        if(!this.state.showScroll && window.innerHeight > 300 && window.pageYOffset > 500){
+            this.setState({showScroll: true});
+        }
+
+        if (this.state.showScroll && window.pageYOffset < 500){
+            this.setState({showScroll: false});
+        }
+    }
+
+    contentFadeIn = () => {
+        const scrollElements = document.querySelectorAll(".contentBlock");
+
+        var throttleTimer;
+
+        const throttle = (callback, time) => {
+        if (throttleTimer) return;
+
+        throttleTimer = true;
+        setTimeout(() => {
+            callback();
+            throttleTimer = false;
+        }, time);
+        }
+
+        const elementInView = (el, dividend = 1) => {
+        const elementTop = el.getBoundingClientRect().top;
+
+        return (
+            elementTop <=
+            (window.innerHeight || document.documentElement.clientHeight) / dividend
+        );
+        };
+
+        const elementOutofView = (el) => {
+        const elementTop = el.getBoundingClientRect().top;
+
+        return (
+            elementTop > (window.innerHeight || document.documentElement.clientHeight)
+        );
+        };
+
+        const displayScrollElement = (element) => {
+        element.classList.add("scrolled");
+        };
+
+        const hideScrollElement = (element) => {
+        element.classList.remove("scrolled");
+        };
+
+        const handleScrollAnimation = () => {
+        scrollElements.forEach((el) => {
+            if (elementInView(el, 1.25)) {
+            displayScrollElement(el);
+            } else if (elementOutofView(el)) {
+            hideScrollElement(el)
+            }
+        })
+        }
+        var timer=0;
+        var count=0;
+        var scroll = 0;
+
+        window.addEventListener("scroll", () => { 
+        throttle(() => {
+            handleScrollAnimation();
+        }, 250);
+        });
+    }
+
+    componentDidMount(){
+        document.addEventListener("scroll", this.scrollDown, false);
+        this.contentFadeIn();
+    }
+
+    componentWillUnmount(){
+        document.removeEventListener("scroll", this.scrollDown, false);
+      }
+
     render(){
         return(
             <div className="homeCont">
-                <div className="headerBlock">
+                <div className="header">
+                    <img src={yenaLogoDualLight} alt="" />
+                </div>
+                <div className="menu">
+                    <div><a href="">About</a></div>
+                    <div><a href="">Work</a></div>
+                    <div><a href="">Projects</a></div>
+                    <div className="btn btnClear"><a href="">Resume</a></div>
+                </div>
+                <div className="headerBlock fadeIn">
                     <div className="homeMainText">Hi there!</div>
-                    <div className="homeMainText">I'm <strong>Yena</strong>, a design-minded software engineer.</div>
-                    <div className="btnClear">Get in touch</div>
+                    <div className="homeMainText">I'm Yena!</div>
                 </div>
                 <div className="contentBlock">
                     <div className="blockLabel">About</div>
@@ -183,14 +280,17 @@ class Home extends React.Component {
                     </div>
                 </div>
                 <div className="footer">
-                    <div className="footerLabel">Designed & Built by Yena Paek</div>
+                    <div className="footerLabel">Handcrafted by me © twentytwentytwo</div>
                     <div className="footerLinks">
-                        <a>Email</a>
-                        <a>LinkedIn</a>
-                        <a>GitHub</a>
+                        <a href="mailto:yenapaek@gmail.com"><BsMailbox /></a>
+                        <a href="https://www.linkedin.com/in/yenapaek" target="_blank"><AiOutlineLinkedin /></a>
+                        <a href="https://github.com/yenapaek" target="_blank"><FaGithubAlt/></a>
                     </div>
                 </div>
-                <div className="floating"><BsArrowUpCircle /></div>
+                {this.state.showScroll ?
+                    <div className="floating"><BsArrowUpCircle /></div>
+                    : null
+                }
             </div>
         );
     }
