@@ -33,16 +33,16 @@ class Home extends React.Component {
     contentFadeIn = () => {
         const scrollElements = document.querySelectorAll(".contentBlock");
 
-        var throttleTimer;
+        let throttleTimer;
 
         const throttle = (callback, time) => {
-        if (throttleTimer) return;
+            if (throttleTimer) return;
 
-        throttleTimer = true;
-        setTimeout(() => {
-            callback();
-            throttleTimer = false;
-        }, time);
+            throttleTimer = true;
+            setTimeout(() => {
+                callback();
+                throttleTimer = false;
+            }, time);
         }
 
         const elementInView = (el, dividend = 1) => {
@@ -63,25 +63,22 @@ class Home extends React.Component {
         };
 
         const displayScrollElement = (element) => {
-        element.classList.add("scrolled");
+            element.classList.add("scrolled");
         };
 
         const hideScrollElement = (element) => {
-        element.classList.remove("scrolled");
+            element.classList.remove("scrolled");
         };
 
         const handleScrollAnimation = () => {
-        scrollElements.forEach((el) => {
-            if (elementInView(el, 1.25)) {
-            displayScrollElement(el);
-            } else if (elementOutofView(el)) {
-            hideScrollElement(el)
-            }
-        })
+            scrollElements.forEach((el) => {
+                if (elementInView(el, 1.25)) {
+                displayScrollElement(el);
+                } else if (elementOutofView(el)) {
+                hideScrollElement(el)
+                }
+            })
         }
-        var timer=0;
-        var count=0;
-        var scroll = 0;
 
         window.addEventListener("scroll", () => { 
         throttle(() => {
@@ -186,7 +183,7 @@ class Home extends React.Component {
                             <div className="job">
                                 <div className="jobInfo">
                                     <div className="jobTitle">Fullstack Software Developer</div>
-                                    <p className="jobCompany"><a href="htp//rawkorean.com/" target="_blank" rel="noopener noreferrer">Raw Korean</a></p>
+                                    <p className="jobCompany"><a href="https://rawkorean.com/" target="_blank" rel="noopener noreferrer">Raw Korean</a></p>
                                 </div>
                                 <div className="jobDate">Oct 2021 - Jan 2022</div>
                             </div>
