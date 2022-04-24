@@ -4,6 +4,7 @@ import { AiOutlineLinkedin } from "react-icons/ai";
 import { FaGithubAlt, FaRegHandPeace, FaRegLaughWink } from "react-icons/fa";
 import yenaLogoLight from "../assets/yenaLogoLight.png";
 import yenaLogoDark from "../assets/yenaLogoDark.png";
+import resume from "../assets/resume.pdf";
 import { HashLink as Link } from "react-router-hash-link";
 
 class Home extends React.Component {
@@ -17,7 +18,6 @@ class Home extends React.Component {
 
     toggleTheme = () => {
         this.props.onThemeChange();
-
     }
 
     scrollDown = () => {
@@ -50,16 +50,14 @@ class Home extends React.Component {
 
         return (
             elementTop <=
-            (window.innerHeight || document.documentElement.clientHeight) / dividend
-        );
+            (window.innerHeight || document.documentElement.clientHeight) / dividend);
         };
 
         const elementOutofView = (el) => {
-        const elementTop = el.getBoundingClientRect().top;
-
-        return (
-            elementTop > (window.innerHeight || document.documentElement.clientHeight)
-        );
+            const elementTop = el.getBoundingClientRect().top;
+            return (
+                elementTop > (window.innerHeight || document.documentElement.clientHeight)
+            );
         };
 
         const displayScrollElement = (element) => {
@@ -81,9 +79,9 @@ class Home extends React.Component {
         }
 
         window.addEventListener("scroll", () => { 
-        throttle(() => {
-            handleScrollAnimation();
-        }, 250);
+            throttle(() => {
+                handleScrollAnimation();
+            }, 250);
         });
     };
 
@@ -106,7 +104,7 @@ class Home extends React.Component {
                     <div><Link to="/#about">About</Link></div>
                     <div><Link to="/#experience">Work</Link></div>
                     <div><Link to="/#projects">Projects</Link></div>
-                    <div className="btn btnClear">Resume</div>
+                    <div className="btn btnClear"><a href={resume} target="_blank" rel="noopener noreferrer">Resume</a></div>
                     <div className="toggle" onClick={this.toggleTheme}><div className="notch"></div><div className="notchMoon"></div></div>
                 </div>
                 <div className="headerBlock">
@@ -182,7 +180,7 @@ class Home extends React.Component {
                         <div className="jobs">
                             <div className="job">
                                 <div className="jobInfo">
-                                    <div className="jobTitle">Fullstack Software Developer</div>
+                                    <div className="jobTitle">Software Developer</div>
                                     <p className="jobCompany"><a href="https://rawkorean.com/" target="_blank" rel="noopener noreferrer">Raw Korean</a></p>
                                 </div>
                                 <div className="jobDate">Oct 2021 - Jan 2022</div>

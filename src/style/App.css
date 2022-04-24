@@ -78,8 +78,8 @@ a {
   justify-content: flex-end;
   align-items: center;
   padding-top: 2rem;
-  -webkit-animation: slide-in-top 0.7s 0.7s both;
-  animation: slide-in-top 0.7s 0.7s both;
+  -webkit-animation: slide-in-top 0.6s 0.6s both;
+  animation: slide-in-top 0.6s 0.6s both;
 }
 .menu div {
   margin-left: 3rem;
@@ -93,8 +93,8 @@ a {
   position: absolute;
   top: 0rem;
   left: 1rem;
-	-webkit-animation: slide-in-left 0.7s 0.1s both;
-	        animation: slide-in-left 0.7s 0.1s both;
+	-webkit-animation: slide-in-left 0.6s 0.1s both;
+	        animation: slide-in-left 0.6s 0.1s both;
 }
 .header img {
   width: 8rem;
