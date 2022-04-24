@@ -17,7 +17,8 @@ class Home extends React.Component {
     }
 
     toggleTheme = () => {
-        this.props.onThemeChange();
+        const theme = this.props.theme === 'light' ? 'dark' : 'light';
+        this.props.onThemeChange(theme);
     }
 
     scrollDown = () => {
@@ -46,11 +47,11 @@ class Home extends React.Component {
         }
 
         const elementInView = (el, dividend = 1) => {
-        const elementTop = el.getBoundingClientRect().top;
-
-        return (
-            elementTop <=
-            (window.innerHeight || document.documentElement.clientHeight) / dividend);
+            const elementTop = el.getBoundingClientRect().top;
+            return (
+                elementTop <=
+                (window.innerHeight || document.documentElement.clientHeight) / dividend
+            );
         };
 
         const elementOutofView = (el) => {

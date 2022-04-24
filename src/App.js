@@ -12,27 +12,26 @@ class App extends React.Component {
       }
   }
 
-  handleThemeToggle = () => {    
-    this.state.theme === 'light' ? 
-      this.setState({theme: 'dark'}) : 
-      this.setState({theme: 'light'});
+  handleThemeToggle = (theme) => {    
+    this.setState({theme});
+    // this.state.theme === 'light' ? 
+    //   this.setState({theme: 'dark'}) : 
+    //   this.setState({theme: 'light'});
+    this.handleBackground(theme);
   }
 
-  handleBackground = () => {
+  // could put this all in home
+  handleBackground = (theme) => {
     let body = document.getElementsByTagName('body')[0];
-    this.state.theme === 'dark' ? 
-      body.setAttribute('class', 'dark') :
-      body.setAttribute('class', 'light');
+    body.setAttribute('class', theme);
   }
 
   render() {
-    this.handleBackground();
-    
     return (
       <Router>
         <Switch>
           <Route exact path="/">
-            <Home theme={this.state.theme} onThemeChange={this.handleThemeToggle}/>
+            <Home theme={this.state.theme} onThemeChange={(e)=>this.handleThemeToggle(e)}/>
           </Route>
         </Switch>
       </Router>  
