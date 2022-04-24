@@ -250,7 +250,7 @@ class Home extends React.Component {
                                     <div>JavaScript</div>
                                     <div>MySQL</div>
                                     <div>PHP</div>
-                                    <div>Oauth</div>
+                                    <div>Oauth 2.0</div>
                                     <div>Kakao API</div>
                                 </div>
                             </div>
