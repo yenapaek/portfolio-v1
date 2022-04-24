@@ -44,7 +44,7 @@ a {
   color: var(--grey);
   transition: all ease 1s;
 }
-.menu a:hover, p a:hover{
+.menu div a:hover, p a:hover{
   text-decoration: underline 0.15em var(--grey);
 }
 
@@ -60,8 +60,8 @@ a {
   transition: background-color 0.3s ease;
 }
 .btnClear:hover {
-  background-color: var(--black);  
-  color: var(--white);
+  background-color: var(--primaryText);  
+  color: var(--bgColor);
 }
 
 .projectTitle a svg{

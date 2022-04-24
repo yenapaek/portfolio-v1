@@ -105,7 +105,7 @@ class Home extends React.Component {
                     <div><Link to="/#about">About</Link></div>
                     <div><Link to="/#experience">Work</Link></div>
                     <div><Link to="/#projects">Projects</Link></div>
-                    <div className="btn btnClear"><a href={resume} target="_blank" rel="noopener noreferrer">Resume</a></div>
+                    <a href={resume} target="_blank" rel="noopener noreferrer"><div className="btn btnClear">Resume</div></a>
                     <div className="toggle" onClick={this.toggleTheme}><div className="notch"></div><div className="notchMoon"></div></div>
                 </div>
                 <div className="headerBlock">

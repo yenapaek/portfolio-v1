@@ -20,7 +20,6 @@ class App extends React.Component {
     this.handleBackground(theme);
   }
 
-  // could put this all in home
   handleBackground = (theme) => {
     let body = document.getElementsByTagName('body')[0];
     body.setAttribute('class', theme);
