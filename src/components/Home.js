@@ -4,7 +4,6 @@ import { AiOutlineLinkedin } from "react-icons/ai";
 import { FaGithubAlt, FaRegHandPeace, FaRegLaughWink } from "react-icons/fa";
 import yenaLogoLight from "../assets/yenaLogoLight.png";
 import yenaLogoDark from "../assets/yenaLogoDark.png";
-import resume from "../assets/resume.pdf";
 import { HashLink as Link } from "react-router-hash-link";
 
 class Home extends React.Component {
@@ -105,7 +104,7 @@ class Home extends React.Component {
                     <div><Link to="/#about">About</Link></div>
                     <div><Link to="/#experience">Work</Link></div>
                     <div><Link to="/#projects">Projects</Link></div>
-                    <a href={resume} target="_blank" rel="noopener noreferrer"><div className="btn btnClear">Resume</div></a>
+                    <a href={process.env.PUBLIC_URL + '/resume.pdf'} target="_blank" rel="noopener noreferrer"><div className="btn btnClear">Resume</div></a>
                     <div className="toggle" onClick={this.toggleTheme}><div className="notch"></div><div className="notchMoon"></div></div>
                 </div>
                 <div className="headerBlock">
