@@ -12,6 +12,8 @@ class Home extends React.Component {
         this.state = {
             showScroll: false,
             date: new Date(),
+            openMenu: false,
+            showMenuX: false,
         }
     }
 
@@ -85,6 +87,12 @@ class Home extends React.Component {
         });
     };
 
+    handleMenu = () => {
+        this.state.openMenu ? 
+            this.setState({openMenu: false, showMenuX: false})
+          : this.setState({openMenu: true, showMenuX: true});
+    }
+
     componentDidMount(){
         document.addEventListener("scroll", this.scrollDown, false);
         this.contentFadeIn();
@@ -97,15 +105,19 @@ class Home extends React.Component {
     render(){
         return(
             <div className="homeCont home">
-                <div className="header">
+                <div className={`header ${this.state.openMenu ? 'hideMenu' : ''}`}>
                     <img src={this.props.theme === 'light' ? yenaLogoLight : yenaLogoDark} alt="" />
                 </div>
-                <div className="menu">
-                    <div><Link to="/#about">About</Link></div>
-                    <div><Link to="/#experience">Work</Link></div>
-                    <div><Link to="/#projects">Projects</Link></div>
-                    <a href={process.env.PUBLIC_URL + '/resume.pdf'} target="_blank" rel="noopener noreferrer"><div className="btn btnClear">Resume</div></a>
+                <div className={`menu ${this.state.openMenu ? '' : 'hideMenu'}`}>
+                    <div onClick={this.handleMenu}><Link to="/#about">About</Link></div>
+                    <div onClick={this.handleMenu}><Link to="/#experience">Work</Link></div>
+                    <div onClick={this.handleMenu}><Link to="/#projects">Projects</Link></div>
+                    <a href={process.env.PUBLIC_URL + '/resume.pdf'} target="_blank" rel="noopener noreferrer"><div className="btn btnClear" onClick={this.handleMenu}>Resume</div></a>
                     <div className="toggle" onClick={this.toggleTheme}><div className="notch"></div><div className="notchMoon"></div></div>
+                </div>
+                <div className={`hamburger ${this.state.showMenuX ? 'menuX' : ''}`} onClick={this.handleMenu}>
+                    <div className="line"></div>
+                    <div className="line"></div>
                 </div>
                 <div className="headerBlock">
                     <div className="homeMainText">Hi, I'm Yena!</div>

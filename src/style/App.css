@@ -152,6 +152,19 @@ a {
   animation: fade-in-bottom 0.7s 2s both;
 }
 
+.hamburger {
+  display: none;
+}
+
+.line {
+  width: 2rem;
+  height: 2px;
+  margin-bottom: 0.5rem;
+  background-color: var(--primaryText);
+  /* transform-origin: 1px;
+  transition: all 0.3s linear; */
+}
+
 /**CONTAINERS**/
 .contentBlock {
   display: flex;
@@ -507,6 +520,30 @@ a .projectTitle svg:hover {
     opacity: 1;
   }
 }
+ @-webkit-keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(1000px);
+            transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(1000px);
+            transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
 
 @media screen and (max-width: 1250px) {
   .headerBlock {
@@ -528,20 +565,66 @@ a .projectTitle svg:hover {
 
 @media screen and (max-width: 992px) {
   .home {
-    padding: 0 2rem 0 2rem;
+    padding: 0 2.25rem 0 2.25rem;
   }
   
   p, li {
     font-size: 1.2rem;
   }
+  .header {
+    left: 0.1rem;
+  }
+  .header img {
+    transform: scale(0.8);
+  }
+  
   .headerBlock {
     padding: 0;
   }
-  .homeMainText {
+  .headerBlock .homeMainText {
     font-size: 1.3rem;
+    -webkit-animation: slide-in-left 0.6s 0.3s both;
+    animation: slide-in-left 0.6s 0.3s both;
   }
-  .homeSubText {
+  .headerBlock .homeSubText {
     font-size: 1.2rem;
+    -webkit-animation: slide-in-left 0.6s 0.3s both;
+    animation: slide-in-left 0.6s 0.3s both;
+  }
+
+  .hamburger {
+    display: block;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    z-index: 10;
+    cursor: pointer;
+  }
+  .line {
+    transition: all 0.2s ease-in-out;
+  }
+  .hamburger.menuX .line:nth-child(1) {
+    transform: rotate(-45deg);
+    margin-top: 25px;
+  }
+  .hamburger.menuX .line:nth-child(2) {
+    transform: rotate(45deg);
+    margin-top: -10px;
+  }
+  .menu {
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    margin-right: 5rem;
+    height: 100vh;
+    -webkit-animation: slide-in-right 0.3s 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-in-right 0.3s 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+  .hideMenu {
+    display: none;
+  }
+  .menu div {
+    margin-bottom: 2rem;
   }
 
   .contentBlock {
@@ -585,5 +668,14 @@ a .projectTitle svg:hover {
     font-size: 1.3rem;
   }
 
+  .floating {
+    bottom: 3rem;
+    right: 0.5rem;
+  }
+  .floating a svg{
+    transform: scale(1);
+  }
+  .floating a svg:hover{
+    transform: scale(1);
+  }
 }
-
