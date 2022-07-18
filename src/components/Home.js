@@ -192,7 +192,14 @@ class Home extends React.Component {
                         <div className="jobs">
                             <div className="job">
                                 <div className="jobInfo">
-                                    <div className="jobTitle">Software Developer</div>
+                                    <div className="jobTitle">Software Engineer</div>
+                                    <p className="jobCompany"><a href="https://genesys.com/" target="_blank" rel="noopener noreferrer">Genesys</a></p>
+                                </div>
+                                <div className="jobDate">June 2022 - Present</div>
+                            </div>
+                            <div className="job">
+                                <div className="jobInfo">
+                                    <div className="jobTitle">Fullstack Software Developer</div>
                                     <p className="jobCompany"><a href="https://rawkorean.com/" target="_blank" rel="noopener noreferrer">Raw Korean</a></p>
                                 </div>
                                 <div className="jobDate">Oct 2021 - Jan 2022</div>
